@@ -8,6 +8,9 @@ authors = ["Daniel Carvalho <dco3@cin.ufpe.br>"]
 python = "^3.8"
 Flask = "^2.1.2"
 imgkit = "^1.2.2"
+requests = "^2.27.1"
+Pillow = "^9.1.0"
+haishoku = "^1.1.8"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
