@@ -1,4 +1,5 @@
 from io import BytesIO
+from random import randint
 from turtle import width
 import imgkit
 from flask import Flask, make_response, request, send_file
@@ -18,10 +19,11 @@ options = {"format": "png", "disable-smart-width": ""}
 
 @app.route("/")
 def hello_world():
+    value = randint(0, 9)
     user = "oieusouodan"
     url = LASTFM_BASEURL + f"&user={user}"
     lastfm_response = requests.get(url).json()
-    last_played_track = lastfm_response["recenttracks"]["track"][7]
+    last_played_track = lastfm_response["recenttracks"]["track"][value]
     track_name = last_played_track["name"]
     artist_name = last_played_track["artist"]["#text"]
     track_cover_url = last_played_track["image"][2]["#text"]
@@ -91,8 +93,10 @@ def hello_world():
             display: flex;
             align-items: center;
                 padding: 5px;
+                
                 """
-        + f"background-color: rgb{dominant};"
+        + f"""background-color: rgb{dominant};
+        border:2px solid rgb{dominant};"""
         + """
         }
 
@@ -104,6 +108,9 @@ def hello_world():
             font-family: 'Poppins', sans-serif;
         }
 
+ .player__music__image {
+            line-height: 0;
+        }
 
         .player__music__infos {
             display: flex;
@@ -129,6 +136,9 @@ def hello_world():
 
         img {
             height: 50px;
+            line-height: 0;
+            margin: -5px;
+            border-radius: 10px 5px 5px 10px;
         }
     </style>
     <div class="player">
