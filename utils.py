@@ -58,8 +58,7 @@ def get_html_string(colors=[], track_info=[]):
 
     return (
         """<style>
-        body {margin-left:-5px;}
-        html{padding:0 10px;
+        html{
        """
         f"""
         {primary_color}

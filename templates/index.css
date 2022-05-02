@@ -1,16 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
 
-body,
 html {
   background-color: var(--secondary);
+  padding: 0 10px;
 }
 
 body {
   border-radius: 10px;
-}
-
-html {
-  background-color: none;
+  margin-left: -5px;
+  background-color: var(--primary);
 }
 
 .player {
