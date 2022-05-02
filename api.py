@@ -1,3 +1,4 @@
+import os
 from flask import Flask, make_response
 import imgkit
 
@@ -5,6 +6,9 @@ from utils import get_colors, get_html_string, get_lastfm_data
 
 app = Flask(__name__)
 
+
+HOME = os.path.dirname(os.path.abspath(__file__))
+css_file_path = os.path.join(HOME, './templates/index.css')
 
 options = {
     "format": "png",
@@ -29,7 +33,7 @@ def show_last_played_image(username):
         html_string,
         False,
         options=options,
-        css="./templates/index.css",
+        css=css_file_path,
     )
 
     response = make_response(image)
