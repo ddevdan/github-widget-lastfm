@@ -32,7 +32,7 @@ def generate_image():
         html_string,
         False,
         options=options,
-        css="./index.css",
+        css="./templates/index.css",
     )
 
     response = make_response(image)
