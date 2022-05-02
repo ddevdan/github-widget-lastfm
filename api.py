@@ -39,5 +39,5 @@ def show_last_played_image(username):
 
     response = make_response(image)
     response.headers.set("Content-Type", "image/png")
-    response.headers.set("Cache-Control", "no-cache");
+    response.headers.set("Cache-Control", f"public, max-age={2}");
     return response
