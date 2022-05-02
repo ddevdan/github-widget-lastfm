@@ -26,7 +26,8 @@ def get_colors(image_url):
     )
 
     r, g, b = dominant
-    primary = f"rgba({r}, {g}, {b}, 0.85);"
+    primary = f"rgba({r}, {g}, {b}, 1);"
+    secondary = f"rgba({r}, {g}, {b}, 0.8);"
 
     r = r / 255.0
     g = g / 255.0
@@ -45,13 +46,15 @@ def get_colors(image_url):
         )
 
     primary_color = f"--primary: {primary}"
+    secondary_color = f"--secondary: {secondary}"
     text_color = f"--text-color: {text_color}"
-    return primary_color, text_color
+
+    return primary_color, secondary_color, text_color
 
 
 def get_html_string(colors=[], track_info=[]):
     track_name, artist_name, track_cover_url = track_info
-    primary_color, text_color = colors
+    primary_color, secondary_color, text_color = colors
 
     return (
         """<style>
@@ -60,6 +63,7 @@ def get_html_string(colors=[], track_info=[]):
        """
         f"""
         {primary_color}
+        {secondary_color}
         {text_color}
        """
         + """

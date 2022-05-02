@@ -15,17 +15,17 @@ options = {
 }
 
 
-@app.route("/")
-def generate_image():
-    user = "oieusouodan"
+@app.route("/lastfm/generate/<username>")
+def show_last_played_image(username):
+    user = username
 
     track_name, artist_name, track_cover_url = get_lastfm_data(user)
 
-    primary_color, text_color = get_colors(image_url=track_cover_url)
+    primary_color, secondary_color, text_color = get_colors(image_url=track_cover_url)
 
     html_string = get_html_string(
         track_info=[track_name, artist_name, track_cover_url],
-        colors=[primary_color, text_color],
+        colors=[primary_color, secondary_color, text_color],
     )
 
     image = imgkit.from_string(
