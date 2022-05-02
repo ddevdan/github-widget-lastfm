@@ -26,7 +26,7 @@ def get_colors(image_url):
     )
 
     r, g, b = dominant
-    primary = f"rgb({r}, {g}, {b});"
+    primary = f"rgba({r}, {g}, {b}, 0.85);"
 
     r = r / 255.0
     g = g / 255.0

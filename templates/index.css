@@ -5,6 +5,14 @@ html {
   background-color: var(--primary);
 }
 
+body {
+  border-radius: 10px;
+}
+
+html {
+  background-color: none;
+}
+
 .player {
   width: 250px;
   height: auto;
@@ -55,6 +63,6 @@ html {
 img {
   height: 50px;
   line-height: 0;
-  margin: -5px;
+  margin-right: -5px;
   border-radius: 10px 5px 5px 10px;
 }
