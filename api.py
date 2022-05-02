@@ -1,8 +1,5 @@
 from flask import Flask, make_response
-from haishoku.haishoku import Haishoku
-import requests
 import imgkit
-import colorsys
 
 from utils import get_colors, get_html_string, get_lastfm_data
 
