@@ -1,13 +1,11 @@
 import colorsys
 import requests
 from haishoku.haishoku import Haishoku
-
-
-LASTFM_BASEURL = "https://ws.audioscrobbler.com/2.0/?api_key=e013df5bf0cf898c1ac134cee9cf1ce7&method=user.getrecenttracks&format=json"
+from settings import LAST_FM_BASE_URL
 
 
 def get_lastfm_data(user):
-    url = f"{LASTFM_BASEURL}&user={user}"
+    url = f"{LAST_FM_BASE_URL}&user={user}"
 
     lastfm_response = requests.get(url).json()
 
