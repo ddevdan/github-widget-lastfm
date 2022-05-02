@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+        .player {
+            width: 300px;
+            height: auto;
+            background: rgb(250, 231, 124);
+            border:2px solid rgb(250, 231, 124);
+            border-radius: 15px;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+                padding: 5px;
+        }
+
+        .player__music {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+        .player__music__infos {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0;
+            margin-left: 15px;
+        }
+
+        .player__music__infos p {
+            margin: 0;
+            padding: 0;
+            line-height: 18px;
+        }
+
+        .player__music__infos p:first-of-type {
+            font-weight: bold;
+        }
+
+        .player__music__image {
+            line-height: 0;
+        }
+
+        img {
+            height: 50px;
+            line-height: 0;
+            margin: -5px;
+            border-radius: 10px 5px 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="player">
+        <div class="player__music">
+            <!-- img src="{track_cover}" alt="{track_name} cover" /> -->
+            <div class="player__music__image">
+                <img src="https://lastfm.freetls.fastly.net/i/u/174s/ea624dc31a254a6ab15fb3d9e2ab1a44.jpg"
+                    alt="cover" />
+            </div>
+            <div class="player__music__infos">
+                <p class="player__music__name">Brazil</p>
+                <p class="player__music__artist">Declan McKenna</p>
+            </div>
+        </div>
+        <!-- <progress /> -->
+
+
+    </div>
+
+</body>
+
+</html>
