@@ -26,8 +26,8 @@ def get_colors(image_url):
     )
 
     r, g, b = dominant
-    primary = f"rgba({r}, {g}, {b}, 1);"
-    secondary = f"rgba({r}, {g}, {b}, 0.8);"
+    primary = f"rgba({r}, {g}, {b}, 1)"
+    secondary = f"rgba({r}, {g}, {b}, 0.8)"
 
     r = r / 255.0
     g = g / 255.0
@@ -39,15 +39,23 @@ def get_colors(image_url):
     light_percent = int(l * 100)
     saturation_percent = int(s * 100)
 
+    avarage_light = light_percent > 50
+    low_light = light_percent <= 50
+    hight_saturation = saturation_percent > 80
+
     text_color = f"hsl({hue_position},  {saturation_percent}%, {light_percent - 60}%)"
-    if light_percent < 50:
+    if avarage_light and hight_saturation:
+        secondary = (
+            f"hsl({hue_position},  {saturation_percent}%, {light_percent - 40}%)"
+        )
+    elif low_light:
         text_color = (
             f"hsl({hue_position},  {saturation_percent}%, {light_percent + 60}%)"
         )
 
-    primary_color = f"--primary: {primary}"
-    secondary_color = f"--secondary: {secondary}"
-    text_color = f"--text-color: {text_color}"
+    primary_color = f"--primary: {primary};"
+    secondary_color = f"--secondary: {secondary};"
+    text_color = f"--text-color: {text_color};"
 
     return primary_color, secondary_color, text_color
 
