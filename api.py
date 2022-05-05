@@ -1,6 +1,6 @@
 import os
 import random
-from flask import Flask, make_response
+from flask import Flask, make_response, request
 import imgkit
 
 from utils import get_colors, get_html_string, get_lastfm_data
@@ -17,11 +17,11 @@ options = {
 }
 
 
-@app.route("/lastfm/generate/<username>")
-def show_last_played_image(username):
-    user = username
+@app.route("/lastfm")
+def show_last_played_image():
+    username = request.args.get("username")
 
-    track_name, artist_name, track_cover_url = get_lastfm_data(user)
+    track_name, artist_name, track_cover_url = get_lastfm_data(username)
 
     primary_color, secondary_color, text_color = get_colors(image_url=track_cover_url)
 
