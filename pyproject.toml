@@ -5,7 +5,7 @@ description = ""
 authors = ["Daniel Carvalho <dco3@cin.ufpe.br>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python ="~3.8.1"
 Flask = "^2.1.2"
 imgkit = "^1.2.2"
 requests = "^2.27.1"
