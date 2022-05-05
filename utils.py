@@ -41,16 +41,28 @@ def get_colors(image_url):
 
     avarage_light = light_percent > 50
     low_light = light_percent <= 50
-    hight_saturation = saturation_percent > 80
+    high_light = light_percent >= 80
+    high_saturation = saturation_percent > 80
+    low_saturation = saturation_percent < 50
 
     text_color = f"hsl({hue_position},  {saturation_percent}%, {light_percent - 60}%)"
-    if avarage_light and hight_saturation:
+
+    if low_saturation:
         secondary = (
             f"hsl({hue_position},  {saturation_percent}%, {light_percent - 40}%)"
         )
-    elif low_light:
+    if low_light:
         text_color = (
             f"hsl({hue_position},  {saturation_percent}%, {light_percent + 60}%)"
+        )
+
+    elif avarage_light and high_saturation:
+        secondary = (
+            f"hsl({hue_position},  {saturation_percent}%, {light_percent - 40}%)"
+        )
+    elif high_light:
+        secondary = (
+            f"hsl({hue_position},  {saturation_percent}%, {light_percent - 60}%)"
         )
 
     primary_color = f"--primary: {primary};"
@@ -60,15 +72,20 @@ def get_colors(image_url):
     return primary_color, secondary_color, text_color
 
 
-def get_html_string(colors=[], track_info=[]):
+def get_html_string(colors=[], track_info=[], title=""):
     track_name, artist_name, track_cover_url = track_info
     primary_color, secondary_color, text_color = colors
+
+    if title:
+        title = f"<h1>{title}</h1>"
+    else:
+        title = ""
 
     return (
         """<style>
         html{
        """
-        f"""
+        + f"""
         {primary_color}
         {secondary_color}
         {text_color}
@@ -77,6 +94,9 @@ def get_html_string(colors=[], track_info=[]):
         }
 
     </style>
+    <div class="player-wrapper">"""
+        + title
+        + """
     <div class="player">
         <div class="player__music">"""
         + f"""
@@ -91,7 +111,7 @@ def get_html_string(colors=[], track_info=[]):
         + """
            
         </div>
-
+</div>
 
     </div>"""
     )

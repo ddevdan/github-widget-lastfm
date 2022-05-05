@@ -6,19 +6,26 @@ html {
 body {
   border-radius: 10px;
   margin-left: -5px;
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
+  font-family: "Open Sans", sans-serif;
 }
 
 .player {
   width: 250px;
   height: auto;
   border-radius: 10px;
-  font-family: "Open Sans", sans-serif;
   display: flex;
   align-items: center;
   padding: 5px;
   background-color: var(--primary);
   border: 1px solid var(--primary);
+}
+
+h1 {
+  line-height: 1.5rem;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  font-weight: normal
 }
 
 .player__music {

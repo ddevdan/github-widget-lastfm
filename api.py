@@ -20,6 +20,7 @@ options = {
 @app.route("/lastfm")
 def show_last_played_image():
     username = request.args.get("username")
+    title = request.args.get("title") or False
 
     track_name, artist_name, track_cover_url = get_lastfm_data(username)
 
@@ -28,6 +29,7 @@ def show_last_played_image():
     html_string = get_html_string(
         track_info=[track_name, artist_name, track_cover_url],
         colors=[primary_color, secondary_color, text_color],
+        title=title,
     )
 
     image = imgkit.from_string(
