@@ -16,7 +16,6 @@ build-backend = "pdm.backend"
 
 [project]
 authors = [{ name = "Daniel Carvalho", email = "dco3@cin.ufpe.br" }]
-requires-python = "~=3.8.1"
 dependencies = [
     "Flask<3.0.0,>=2.1.2",
     "imgkit<2.0.0,>=1.2.2",
